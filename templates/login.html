@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3 class="mx-auto my-3 text-center">Register</h3>
+<h3 class="mx-auto my-3 text-center">Login</h3>
 
-<form class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto" method="POST" action="{{ url_for('register') }}">
+<form class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto" method="POST" action="{{ url_for('login') }}">
     <!--Username-->
     <div class="mb-3">
         <span class="material-icons prefix">person</span>
@@ -17,13 +17,13 @@
         <input type="password" name="password" minlength="5" maxlength="15" required pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" id="exampleInputPassword1">
     </div>
     <!--Submit button-->
-    <button type="submit" class="btn btn-secondary">Register</button>
+    <button type="submit" class="btn btn-secondary">Login</button>
 </form>
 
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto">
         <p class="text-center">
-            Already registered? <a href="{{ url_for('login')}}">Log In</a>
+            New here? <a href="{{ url_for('register')}}">Register account</a>
         </p>
     </div>
 </div>
