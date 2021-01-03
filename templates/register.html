@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="mx-auto my-3 text-center">Register</h3>
+
+<form class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto" method="POST" action="{{ url_for('register') }}">
+    <!--Username-->
+    <div class="mb-3">
+        <span class="material-icons prefix">person</span>
+        <label for="username" class="form-label">Username</label>
+        <input type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <!--Password-->
+    <div class="mb-3">
+        <span class="material-icons">vpn_key</span>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <!--Submit button-->
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+{% endblock %}
