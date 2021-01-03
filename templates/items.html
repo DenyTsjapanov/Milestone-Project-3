@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iWanna</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+<h2>I"m extending the base element.</h2>
     {% for item in items %}
-        {{ item.item_name}}<br>
-        {{ item.category_name}}<br>
-        {{ item.item_description}}<br>
+        {{ item.item_name }}<br>
+        {{ item.category_name }}<br>
+        {{ item.item_description }}<br>
         {{ item.url }}<br>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
