@@ -8,13 +8,13 @@
     <div class="mb-3">
         <span class="material-icons prefix">person</span>
         <label for="username" class="form-label">Username</label>
-        <input type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="username" name="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
     <!--Password-->
     <div class="mb-3">
         <span class="material-icons">vpn_key</span>
         <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" name="password" minlength="5" maxlength="15" required pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" id="exampleInputPassword1">
     </div>
     <!--Submit button-->
     <button type="submit" class="btn btn-secondary">Submit</button>

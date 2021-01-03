@@ -1,3 +1,7 @@
 .navbar {
     background-color: indianred;
 }
+
+.flashes {
+    line-height: 2;
+}
