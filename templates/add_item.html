@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p class="h1 text-center m-5" data-aos="fade-down" data-aos-delay="100">Add new item</p>
+<p class="h1 text-center m-5" data-aos="fade-down" data-aos-delay="100"><strong>Add new item</strong></p>
 
 <div class="container">
     <div class="row">
@@ -56,9 +56,9 @@
             <!--Submit button-->
             <div class="row">
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-info" data-aos="fade-up" data-aos-delay="100" style="color: #fff;">Add</button>
                     <!--Cancel edit-->
-                    <a href="{{ url_for('get_items') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ url_for('get_items') }}" class="btn btn-secondary" data-aos="fade-up" data-aos-delay="200">Cancel</a>
                 </div>
             </div>
         </form>
