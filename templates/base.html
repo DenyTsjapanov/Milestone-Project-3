@@ -21,7 +21,7 @@
 
     <header>
         <!-- Navigation panel-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-darker">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url_for('get_items') }}"><em>WANTiT!</em></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -62,6 +62,9 @@
             </div>
         </nav>
     </header>
+
+    {% block hero %}
+    {% endblock %}
 
     <section>
         <!--Flash messages-->

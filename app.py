@@ -120,7 +120,8 @@ def add_item():
         }
         mongo.db.items.insert_one(item)
         flash("Added to your wishlist!")
-        return redirect(url_for("get_items"))
+        return redirect(url_for(
+            "profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
@@ -150,7 +151,8 @@ def edit_item(item_id):
 def delete_item(item_id):
     mongo.db.items.remove({"_id": ObjectId(item_id)})
     flash("Item succesfully deleted!")
-    return redirect(url_for("get_items"))
+    return redirect(url_for(
+        "profile", username=session["user"]))
 
 
 @app.route("/get_categories")

@@ -23,3 +23,18 @@ body {
     color: #fff!important;
     font-size: 40px;font-weight: 600;
 }
+
+.nav-item {
+    font-size: 18px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: all ease-in-out 0.2s;
+}
+
+.nav-item a:hover {
+    font-weight: 600;
+}
+
+.profile-text {
+    text-transform: capitalize;
+}
