@@ -98,6 +98,7 @@ body {
   background: #E7625F;
   color: #fff!important;
   transition: all 0.4s;
+  text-decoration: none;
 }
 
 .back-to-top i:hover {
