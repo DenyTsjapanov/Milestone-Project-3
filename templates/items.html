@@ -12,7 +12,8 @@
             <h5 class="card-title"><strong>{{ item.item_name }}</strong></h5>
             <p class="card-text">{{ item.item_description }}</p>
             <p class="card-text"><strong>{{ item.item_price }}</strong></p>
-            <a href="{{ item.url }}" class="btn btn-primary" target="_blank">Get!</a>
+            <a href="{{ item.url }}" class="btn btn-primary" target="_blank">View</a>
+            <p style="font-size: 10px;"><em>by {{ item.created_by }}</em></p>
         </div>
     </div>
     {% endfor %}

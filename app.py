@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 def get_items():
     items = mongo.db.items.find()
     return render_template("items.html", items=items)
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -57,7 +58,7 @@ def login():
         if existing_user:
             # ensure hashed pw matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -96,11 +97,23 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_item")
+@app.route("/add_item", methods=["GET", "POST"])
 def add_item():
+    if request.method == "POST":
+        item = {
+            "category_name": request.form.get("category_name"),
+            "item_name": request.form.get("item_name"),
+            "item_description": request.form.get("item_description"),
+            "url": request.form.get("url"),
+            "item_price": request.form.get("item_price"),
+            "item_img": request.form.get("item_img"),
+            "created_by": session["user"]
+        }
+        mongo.db.items.insert_one(item)
+        flash("Added to your wishlist!")
+        return redirect(url_for("get_items"))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
-
 
 
 if __name__ == "__main__":
