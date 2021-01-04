@@ -30,7 +30,7 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbatCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active m-2" aria-current="page"
@@ -49,19 +49,20 @@
                             <a class="nav-link m-2" href="{{ url_for('get_categories') }}">Manage</a>
                         </li>
                         {% endif %}
-                        <a class="btn btn-primary m-2 logout-btn" href="{{ url_for('logout') }}"
+                        <a class="btn btn-secondary m-2 logout-btn" href="{{ url_for('logout') }}"
                             role="button">Logout</a>
                         {% else %}
-                        <a class="btn btn-primary m-2 login-btn" href="{{ url_for('login') }}" role="button">Login</a>
+                        <a class="btn btn-secondary m-2 login-btn" href="{{ url_for('login') }}" role="button">Login</a>
                         <a class="btn btn-primary m-2 register-btn" href="{{ url_for('register') }}"
                             role="button">Register</a>
-                        {% endif %}
-                        <form class="d-flex search-form m-2" action="{{ url_for('search') }}" method="POST">
-                            <input id="query" name="query" class="form-control me-2 validate" minlength="3"
-                                type="search" placeholder="Search" aria-label="Search" required>
-                            <label for="query"></label>
-                            <button class="btn btn-outline-info" type="submit">Search</button>
-                        </form>
+                    </ul>
+                    {% endif %}
+                    <form class="d-flex search-form m-2" action="{{ url_for('search') }}" method="POST">
+                        <input id="query" name="query" class="form-control me-2 validate" minlength="3" type="search"
+                            placeholder="Search" aria-label="Search" required>
+                        <label for="query"></label>
+                        <button class="btn btn-info" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -75,7 +76,7 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-        <div class="row flashes">
+        <div class="row flashes" data-aos="fade-down">
             <div class="col-sm-12 col-md-6 col-lg-4 alert alert-info mx-auto">
                 <h4 class="text-center">{{ message }}</h4>
             </div>
@@ -90,6 +91,52 @@
 
         {% endblock %}
     </main>
+
+    <footer id="footer" class="mt-auto">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info">
+                            <h3 id="footer-brand"><a href="{{ url_for('get_items') }}"><em>WANTiT!</em></a></h3>
+                            <div class="social-links mt-3">
+                                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/DenyTsjapanov/Milestone-Project-3.git" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>USEFUL LINKS</h4>
+                        <ul>
+                            <li><a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas Database</a></li>
+                            <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a></li>
+                            <li><a href="https://www.python.org/">Python</a></li>
+                            <li><a href="https://michalsnik.github.io/aos/">AOS (Animate On Scroll)</a></li>
+                            <li><a href="https://heroku.com">Heroku</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <form class="d-flex search-form m-2" action="{{ url_for('search') }}" method="POST">
+                            <input id="query" name="query" class="form-control me-2 validate" minlength="3"
+                                type="search" placeholder="Search" aria-label="Search" required>
+                            <label for="query"></label>
+                            <button class="btn btn-info" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="copyright">
+                            <p class="text-center h6">&copy; Copyright. All Rights Reserved. Created by <a style="text-decoration: none; font-weight: 600; color: #0dcaf0;" class="h6" href="https://github.com/DenyTsjapanov">Deny
+                                Tsjapanov.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="/static/vendor/jQuery/jquery-3.5.1.min.js"></script>
     <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>

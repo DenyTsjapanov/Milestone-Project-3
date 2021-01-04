@@ -2,22 +2,17 @@
 
 body {
     font-family: 'Questrial', sans-serif;
+    color: #2a2c39!important;
+    background-color: rgba(205, 92, 92, 0.1);
 }
 
 .navbar {
-    background-color: indianred;
+    background-color: #2a2c39;
 }
 
 .flashes {
     line-height: 2;
     margin: 1rem;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 10vw;
-    object-fit: cover;
-    object-position: center;
 }
 
 .navbar-brand {
@@ -28,8 +23,7 @@ body {
 }
 
 .navbar-brand:hover {
-    color: #006c81!important;
-    font-size: 40.5px;
+    color: #009cbb!important;
 }
 
 .nav-item {
@@ -45,20 +39,128 @@ body {
     color: #0dcaf0!important;
 }
 
+/* --- Transforming profile text to capitalize in stead of default lowercase --- */
 .profile-text {
     text-transform: capitalize;
 }
 
-.hero-section {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    width: auto;
-    background: url(../img/hero-2.jpg) center no-repeat;
-    background-size: cover;
-    margin-top: -86px;
-    z-index: -10;
+
+/* --- CARDS RESULTS STYLING */
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    object-position: center;
 }
 
-body {
-    background-color: rgba(205, 92, 92, 0.2);
+@media (max-width: 768px) {
+    .card-img-top {
+    height: 50vw;
 }
+}
+
+/* --- SHADOW TO THE CARDS --- */
+.results-card {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* --- FOOTER --- */
+#footer {
+  background: #2a2c39;
+  padding: 0 0 0 0;
+  color: #fff;
+  font-size: 14px;
+  left: 0;
+  bottom: -180px;
+  width: 100%;
+  position: relative;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+  color: #0dcaf0!important;
+}
+
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #E7625F;
+  color: #fff;
+  line-height: 1;
+  padding: 10px 0;
+  margin-right: 3px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: all 0.4s ease-in-out;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #fff;
+  color: #E7625F;
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #0dcaf0;
+}
+
+#footer-brand a{
+    color: #0dcaf0;
+    font-size: 36px;
+    text-decoration: none;
+}
+
+/* --- END OF FOOTER --- */
