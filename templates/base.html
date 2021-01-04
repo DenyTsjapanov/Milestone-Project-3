@@ -41,16 +41,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('add_item') }}">New Item</a>
                         </li>
-                            {% if session.user|lower == "admin"|lower %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('get_categories') }}">Manage</a>
-                            </li>
-                            {% endif %}
+                        {% if session.user|lower == "admin"|lower %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('get_categories') }}">Manage</a>
+                        </li>
+                        {% endif %}
                         <a class="btn btn-primary mx-2" href="{{ url_for('logout') }}" role="button">Logout</a>
-                         {% else %}
+                        {% else %}
                         <a class="btn btn-primary mx-2" href="{{ url_for('login') }}" role="button">Login</a>
                         <a class="btn btn-primary mx-2" href="{{ url_for('register') }}" role="button">Register</a>
                         {% endif %}
+                        <form class="d-flex" action="{{ url_for('search') }}" method="POST">
+                            <input id="query" name="query" class="form-control me-2 validate" minlength="3" type="search" placeholder="Search" aria-label="Search" required>
+                            <label for="query"></label>
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                 </div>
             </div>
         </nav>
