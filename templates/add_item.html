@@ -17,7 +17,7 @@
                     <label for="category_name" class="form-label">Category</label>
                     <select id="category_name" name="category_name" class="form-select validate"
                         aria-label="Default select example" required>
-                        <option selected>Select a category</option>
+                        <option selected disabled>Select a category</option>
                         {% for category in categories %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}

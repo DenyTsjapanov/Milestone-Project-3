@@ -3,19 +3,22 @@
 
 
 
-
-<div class="row my-3">
-    {% for item in items %}
-    <div class="card m-3" style="width: 18rem;">
-        <img src="{{ item.item_img }}" class="card-img-top pt-3" alt="product-img">
-        <div class="card-body">
-            <h5 class="card-title"><strong>{{ item.item_name }}</strong></h5>
-            <p class="card-text">{{ item.item_description }}</p>
-            <p class="card-text"><strong>{{ item.item_price }}</strong></p>
-            <a href="{{ item.url }}" class="btn btn-primary" target="_blank">View</a>
-            <p style="font-size: 10px;"><em>by {{ item.created_by }}</em></p>
+<div class="container">
+    <div class="row my-3">
+        {% for item in items %}
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{{ item.item_img }}" class="card-img-top pt-3" alt="product-img">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{{ item.item_name }}</strong></h5>
+                <p class="card-text">{{ item.item_description }}</p>
+                <p class="card-text"><strong>{{ item.item_price }}</strong></p>
+                <a href="{{ item.url }}" class="btn btn-primary" target="_blank">View</a>
+                <a href="{{ item.url }}" class="btn btn-info" target="_blank">Edit</a>
+                <a href="{{ item.url }}" class="btn btn-danger" target="_blank">Delete</a>
+                <p style="font-size: 10px;"><em>by {{ item.created_by }}</em></p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
