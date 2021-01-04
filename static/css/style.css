@@ -65,6 +65,18 @@ body {
 }
 
 
+/* --- Redirect styling from Registration and Login pages --- */
+.redirect-signup-link {
+    text-decoration: none;
+    color: #0dcaf0;
+}
+
+.redirect-signup-link:hover {
+    text-decoration: none;
+    color: #009cbb;
+}
+
+
 
 /* --- FOOTER --- */
 #footer {

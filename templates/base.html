@@ -30,12 +30,14 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbatCollapse">
+                <!--Collabsable navbar support from Bootstrap-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active m-2" aria-current="page"
                                 href="{{ url_for('get_items') }}">Home</a>
                         </li>
+                        <!-- Below menus will only appear if a user is logged in-->
                         {% if session.user %}
                         <li class="nav-item">
                             <a class="nav-link m-2"
@@ -44,6 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link m-2" href="{{ url_for('add_item') }}">Create</a>
                         </li>
+                        <!-- Below additional menu (manage) will only appear if a user called "admin" is logged in-->
                         {% if session.user|lower == "admin"|lower %}
                         <li class="nav-item">
                             <a class="nav-link m-2" href="{{ url_for('get_categories') }}">Manage</a>
@@ -57,6 +60,7 @@
                             role="button">Register</a>
                     </ul>
                     {% endif %}
+                    <!-- Search bar to iterate through db and provide search results on page. -->
                     <form class="d-flex search-form m-2" action="{{ url_for('search') }}" method="POST">
                         <input id="query" name="query" class="form-control me-2 validate" minlength="3" type="search"
                             placeholder="Search" aria-label="Search" required>
@@ -71,6 +75,7 @@
     {% block hero %}
     {% endblock %}
 
+    <!-- Mesaages at the top of pages in case an account has been made, logged in, logged out and/or created/edited wishlist item-->
     <section class="main-section">
         <!--Flash messages-->
         {% with messages = get_flashed_messages() %}
@@ -92,6 +97,7 @@
         {% endblock %}
     </main>
 
+    <!--Foter providing some links to dev info, as well as sites of frameworks and programming languages used in this project-->
     <footer id="footer" class="mt-auto">
         <div class="footer-top">
             <div class="container">
@@ -118,6 +124,7 @@
                         </ul>
                     </div>
 
+                    <!--Same saerch bar as in the navbar for conenience -->
                     <div class="col-lg-4 col-md-6 footer-links">
                         <form class="d-flex search-form m-2" action="{{ url_for('search') }}" method="POST">
                             <input id="query" name="query" class="form-control me-2 validate" minlength="3"
@@ -142,6 +149,7 @@
     <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--AOS init-->
     <script>
         function aos_init() {
             AOS.init({

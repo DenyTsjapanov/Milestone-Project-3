@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3 class="mx-auto my-3 text-center">Register</h3>
+<p class="h1 text-center m-5" data-aos="fade-down" data-aos-delay="100"><strong>Register</strong></p>
 
 <form class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto" method="POST" action="{{ url_for('register') }}">
     <!--Username-->
@@ -20,10 +20,11 @@
     <button type="submit" class="btn btn-secondary">Register</button>
 </form>
 
+<!--Redirect to login page if existing user-->
 <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 my-3 mx-auto">
         <p class="text-center">
-            Already registered? <a href="{{ url_for('login')}}">Log In</a>
+            Already registered? <a href="{{ url_for('login')}}" class="redirect-signup-link">Log In</a>
         </p>
     </div>
 </div>
