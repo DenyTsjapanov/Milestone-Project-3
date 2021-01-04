@@ -13,7 +13,7 @@
                 <p class="card-text">{{ item.item_description }}</p>
                 <p class="card-text"><strong>{{ item.item_price }}</strong></p>
                 <a href="{{ item.url }}" class="btn btn-primary" target="_blank">View</a>
-                <a href="{{ item.url }}" class="btn btn-info" target="_blank">Edit</a>
+                <a href="{{ url_for('edit_item', item_id=item._id) }}" class="btn btn-info" target="_blank">Edit</a>
                 <a href="{{ item.url }}" class="btn btn-danger" target="_blank">Delete</a>
                 <p style="font-size: 10px;"><em>by {{ item.created_by }}</em></p>
             </div>
