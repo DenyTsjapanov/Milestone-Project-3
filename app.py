@@ -137,6 +137,12 @@ def edit_item(item_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_item.html", item=item, categories=categories)
 
+@app.route("/delete_item/<item_id>")
+def delete_item(item_id):
+    mongo.db.items.remove({"_id": ObjectId(item_id)})
+    flash("Item succesfully deleted!")
+    return redirect(url_for("get_items"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
