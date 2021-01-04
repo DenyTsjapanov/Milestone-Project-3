@@ -14,7 +14,7 @@
     {% block styles %}
 
     {% endblock %}
-    <title>iWanna</title>
+    <title>WANTiT!</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <!-- Navigation panel-->
         <nav class="navbar navbar-expand-lg navbar-light bg-darker">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url_for('get_items') }}"><em>iWanna</em></a>
+                <a class="navbar-brand" href="{{ url_for('get_items') }}"><em>WANTiT!</em></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,27 +35,29 @@
                             <a class="nav-link active" aria-current="page" href="{{ url_for('get_items') }}">Home</a>
                         </li>
                         {% if session.user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('add_item') }}">New Item</a>
-                        </li>
-                        {% if session.user|lower == "admin"|lower %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('get_categories') }}">Manage</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('add_item') }}">New Item</a>
+                            </li>
+                                {% if session.user|lower == "admin"|lower %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url_for('get_categories') }}">Manage</a>
+                                    </li>
+                                {% endif %}
+                            <form class="d-flex" action="{{ url_for('search') }}" method="POST">
+                                <input id="query" name="query" class="form-control me-2 validate" minlength="3"
+                                    type="search" placeholder="Search" aria-label="Search" required>
+                                <label for="query"></label>
+                                <button class="btn btn-outline-info" type="submit">Search</button>
+                            </form>
+                            <a class="btn btn-primary mx-2" href="{{ url_for('logout') }}" role="button">Logout</a>
+                            {% else %}
+                                <a class="btn btn-primary mx-2" href="{{ url_for('login') }}" role="button">Login</a>
+                                <a class="btn btn-primary mx-2" href="{{ url_for('register') }}" role="button">Register</a>
                         {% endif %}
-                        <a class="btn btn-primary mx-2" href="{{ url_for('logout') }}" role="button">Logout</a>
-                        {% else %}
-                        <a class="btn btn-primary mx-2" href="{{ url_for('login') }}" role="button">Login</a>
-                        <a class="btn btn-primary mx-2" href="{{ url_for('register') }}" role="button">Register</a>
-                        {% endif %}
-                        <form class="d-flex" action="{{ url_for('search') }}" method="POST">
-                            <input id="query" name="query" class="form-control me-2 validate" minlength="3" type="search" placeholder="Search" aria-label="Search" required>
-                            <label for="query"></label>
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+
                 </div>
             </div>
         </nav>

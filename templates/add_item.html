@@ -11,7 +11,7 @@
                 <div class="mb-3 col-12 col-md-8 col-lg-8">
                     <label for="item_name" class="form-label">Title</label>
                     <input type="text" minlength="5" maxlength="50" name="item_name" class="form-control" id="item_name"
-                        aria-describedby="emailHelp" required>
+                        aria-describedby="emailHelp" placeholder="What do you want?" required>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
                     <label for="category_name" class="form-label">Category</label>
@@ -29,7 +29,7 @@
                 <div class="mb-3">
                     <label for="item_description" class="form-label">Description</label>
                     <textarea class="form-control validate" minlength="5" maxlength="200" name="item_description"
-                        id="item_description" rows="3" required></textarea>
+                        id="item_description" rows="3" placeholder="Tell me more" required></textarea>
                 </div>
             </div>
             <!--Price and URL-->
@@ -37,12 +37,12 @@
                 <div class="mb-3 col-12 col-md-2 col-lg-2">
                     <label for="item_price" class="form-label">Price</label>
                     <input type="text" minlength="5" maxlength="50" name="item_price" class="form-control"
-                        id="item_price" aria-describedby="emailHelp" required>
+                        id="item_price" aria-describedby="emailHelp" placeholder="E.g. EUR 100" required>
                 </div>
                 <div class="mb-3 col-12 col-md-10 col-lg-10">
                     <label for="url" class="form-label">Where to find</label>
                     <input type="text" minlength="5" name="url" class="form-control" id="url"
-                        aria-describedby="emailHelp" required>
+                        aria-describedby="emailHelp" placeholder="Place link to item here" required>
                 </div>
             </div>
             <!--Image upload-->
@@ -50,13 +50,15 @@
                 <div class="mb-3 col-12 col-md-12 col-lg-12">
                     <label for="item_img" class="form-label">Image address</label>
                     <input type="text" minlength="5" name="item_img" class="form-control" id="item_img"
-                        aria-describedby="emailHelp" required>
+                        aria-describedby="emailHelp" placeholder="Place link to imge here" required>
                 </div>
             </div>
             <!--Submit button-->
             <div class="row">
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Add!</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <!--Cancel edit-->
+                    <a href="{{ url_for('get_items') }}" class="btn btn-secondary">Cancel</a>
                 </div>
             </div>
         </form>

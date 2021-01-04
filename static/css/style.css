@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+body {
+    font-family: 'Questrial', sans-serif;
+}
+
 .navbar {
     background-color: indianred;
 }
@@ -11,4 +17,9 @@
     width: 100%;
     height: 10vw;
     object-fit: cover;
+}
+
+.navbar-brand {
+    color: #fff!important;
+    font-size: 40px;font-weight: 600;
 }
