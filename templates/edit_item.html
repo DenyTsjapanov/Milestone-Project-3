@@ -10,16 +10,20 @@
             <div class="row">
                 <div class="mb-3 col-12 col-md-8 col-lg-8">
                     <label for="item_name" class="form-label">Title</label>
-                    <input type="text" minlength="5" maxlength="50" name="item_name" class="form-control" id="item_name"
-                        aria-describedby="emailHelp" required>
+                    <input type="text" value="{{ item.item_name }}" minlength="5" maxlength="50" name="item_name"
+                        class="form-control" id="item_name" aria-describedby="emailHelp" required>
                 </div>
                 <div class="col-12 col-md-4 col-lg-4">
                     <label for="category_name" class="form-label">Category</label>
                     <select id="category_name" name="category_name" class="form-select validate"
                         aria-label="Default select example" required>
-                        <option selected disabled>Select a category</option>
+                        <option value="" disabled>Choose a category</option>
                         {% for category in categories %}
+                        {% if category.category_name == item.category_name %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -29,19 +33,19 @@
                 <div class="mb-3">
                     <label for="item_description" class="form-label">Description</label>
                     <textarea class="form-control validate" minlength="5" maxlength="200" name="item_description"
-                        id="item_description" rows="3" required></textarea>
+                        id="item_description" rows="3" required>{{ item.item_description }}</textarea>
                 </div>
             </div>
             <!--Price and URL-->
             <div class="row">
                 <div class="mb-3 col-12 col-md-2 col-lg-2">
                     <label for="item_price" class="form-label">Price</label>
-                    <input type="text" minlength="5" maxlength="50" name="item_price" class="form-control"
+                    <input type="text" value="{{ item.item_price }}" minlength="5" maxlength="50" name="item_price" class="form-control"
                         id="item_price" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3 col-12 col-md-10 col-lg-10">
                     <label for="url" class="form-label">Where to find</label>
-                    <input type="text" minlength="5" name="url" class="form-control" id="url"
+                    <input type="text" value="{{ item.url }}" minlength="5" name="url" class="form-control" id="url"
                         aria-describedby="emailHelp" required>
                 </div>
             </div>
@@ -49,14 +53,17 @@
             <div class="row">
                 <div class="mb-3 col-12 col-md-12 col-lg-12">
                     <label for="item_img" class="form-label">Image address</label>
-                    <input type="text" minlength="5" name="item_img" class="form-control" id="item_img"
+                    <input type="text" value="{{ item.item_img }}" minlength="5" name="item_img" class="form-control" id="item_img"
                         aria-describedby="emailHelp" required>
                 </div>
             </div>
             <!--Submit button-->
             <div class="row">
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Complete</button>
+                    <!--Submit edit-->
+                    <button type="submit" class="btn btn-info">Complete</button>
+                    <!--Cancel edit-->
+                    <a href="{{ url_for('get_items') }}" class="btn btn-secondary">Cancel</a>
                 </div>
             </div>
         </form>
