@@ -13,8 +13,10 @@
                 <p class="card-text">{{ item.item_description }}</p>
                 <p class="card-text"><strong>{{ item.item_price }}</strong></p>
                 <a href="{{ item.url }}" class="btn btn-primary" target="_blank">View</a>
-                <a href="{{ url_for('edit_item', item_id=item._id) }}" class="btn btn-info">Edit</a>
-                <a href="{{ item.url }}" class="btn btn-danger">Delete</a>
+                {% if session.user|lower == item.created_by|lower %}
+                    <a href="{{ url_for('edit_item', item_id=item._id) }}" class="btn btn-info">Edit</a>
+                    <a href="{{ item.url }}" class="btn btn-danger">Delete</a>
+                {% endif %}
                 <p style="font-size: 10px;"><em>by {{ item.created_by }}</em></p>
             </div>
         </div>

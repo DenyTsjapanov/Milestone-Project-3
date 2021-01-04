@@ -112,12 +112,26 @@ def add_item():
         mongo.db.items.insert_one(item)
         flash("Added to your wishlist!")
         return redirect(url_for("get_items"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_item.html", categories=categories)
 
 
 @app.route("/edit_item/<item_id>", methods=["GET","POST"])
 def edit_item(item_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "item_name": request.form.get("item_name"),
+            "item_description": request.form.get("item_description"),
+            "url": request.form.get("url"),
+            "item_price": request.form.get("item_price"),
+            "item_img": request.form.get("item_img"),
+            "created_by": session["user"]
+        }
+        mongo.db.items.update({"_id": ObjectId(item_id)},submit)
+        flash("Updated to your wishlist!")
+
     item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
 
     categories = mongo.db.categories.find().sort("category_name", 1)
