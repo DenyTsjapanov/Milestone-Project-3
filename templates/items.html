@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
+
+
+
+
+<div class="row my-3">
     {% for item in items %}
-        {{ item.item_name }}<br>
-        {{ item.category_name }}<br>
-        {{ item.item_description }}<br>
-        {{ item.url }}<br>
+    <div class="card m-3" style="width: 18rem;">
+        <img src="{{ item.item_img }}" class="card-img-top pt-3" alt="product-img">
+        <div class="card-body">
+            <h5 class="card-title"><strong>{{ item.item_name }}</strong></h5>
+            <p class="card-text">{{ item.item_description }}</p>
+            <p class="card-text"><strong>{{ item.item_price }}</strong></p>
+            <a href="{{ item.url }}" class="btn btn-primary" target="_blank">Get!</a>
+        </div>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}
