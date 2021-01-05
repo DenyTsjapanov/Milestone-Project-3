@@ -1,4 +1,6 @@
-# Milestone Project 3 ("WANTiT!") deployed at: https://i-wanna-app.herokuapp.com/
+# Milestone Project 3 ("WANTiT!") 
+
+Project is deployed with Heroku at: https://i-wanna-app.herokuapp.com/
 
 "WANTiT!" is a basic wishlist app. It provides the function (under the CRUD method) to create, view, edit and/or delete items by user's input. A user can create an account, after which he can create items to be stored inside of the wishlist. These items are presented in a Bootstrap card form, providing basic information, such as tyhe item's name, optional description, price and a button that targets a link to an online webshop offering said item/product. Whilst logged in, the user can the view his/her profile to view all items, and subsequently edit or completely remove items from the account. When not logged it, all users have access to viewing all stored and uploaded items as part of the "Get ideas for a gift" understanding.
  
@@ -10,67 +12,57 @@ Files to wireframes are [here](https://github.com/DenyTsjapanov/Milestone-Projec
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+Users can create an account, which is password protected (db in MongoDB is being updated with "users" each time an account is created. Once created, users can add items to their wishlist consisting of an item name, optional description, image and URL to the webshop that offers said item. Inside of users' profiles, users can edit and delete their entries. Going to the "home" page, users are presented with items created by all users. These items can only be viewed, even when logged in, to prevent accidental edits or removal. No existing users cannot create items without an account, but can browse items created by other users. 
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- Register: allowes new users to create an account and have access to creating (and editing and deleting) items;
+- Login: allows existing users to log in to their account and view, edit and delete their own entries;
+- Logout: allows user to clear session (session.pop) and log out of the system, leaving only the option to view all items created by all users in the home page.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+When logged in:
+- View: allows users to follow the link to the online store that offers the particular item/product;
+- Edit: edit entries such as, item name, description, price, category, URL and image (also URL);
+- Delete: allows users to delete items from their wishlist.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+- Sharing items or user profiles with other (non)users to actually distribute the wishlist.
 
 ## Technologies Used
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - This project uses jQuery especially for Bootstrap and AOS (animate on scroll);
+- Python:
+    - Flask is installed with Python to create back end app and manipulate HTML with template rendering and redirecting. Aso with Jinja to make references within html files
+- JavaScript:
+    - JS is used for back to top button to easliy navigate the user to the top of the page once the footer has been reached.
+ - MongoDB:
+     - MongoDB is used for creating and storing data, based on user input, both user accounts, as well as items.
+ - HTML & CSS:
+     - For structure and styling.
 
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Due to lack of time, testing was held to the minimum. All testing took place by means of trial and error. Using the console helped with issued that took place from Heroku. Heroku refused to load the collapsable navigation bar when viewing the pages in mobile (or tablet) view. Restarting heroku fixed this issue. 
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+Jinja was also very helpful is finding issues, as it provides indications in its error messages. 
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+Deployment too place with Heroku. Within Heroku, I created a new app, and added the information from the env.py file to make connections. Further, from GitPod terminal, I added the requirements.txt file, so that Heroku know which requirements this project has. Furthermore, the Procfile was created for web. 
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
+Finally, Heroku app was linked to the GitHub repo and enabled deployment from GitHub. This was, each time that the project was pushed to GitHub, Heroku was automatically updated. 
 
 
 ## Credits
 
-### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- My mentor Reuben Ferrante has always been very helpful in properly explaining what is expected from me, even when I had issues understanding the language or requirements.
+- As usual, W3Schools are amazing for quickly looking up when you're stuck. This also goes for StackOverflow and CSSTricks. 
+- Bootstrap provides a ton of useful information, and a year later I find myself constantly getting new information from simply reading a new section.
+- My wife and friends, who have tested the app on different devices and provided me with feedback for user interface, user experience and bugs.
 
-### Media
-- The photos used in this site were obtained from ...
-
-### Acknowledgements
-
-- I received inspiration for this project from X
+### Content & Media
+- All content is originated from offical websites that offer the item/product for sale. This includes text, as well as images.
